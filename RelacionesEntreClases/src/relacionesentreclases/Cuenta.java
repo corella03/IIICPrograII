@@ -12,31 +12,23 @@ public class Cuenta {
     private long numero;
     private float saldo;
     private double interesAnual;
-    public Cuenta(){
-        
+    private Cliente titular;
+
+    public Cuenta() {
     }
-    public Cuenta(long numero, float saldo, double interesAnual) {
+
+    public Cuenta(long numero, double interesAnual, Cliente titular) {
         this.numero = numero;
-        this.saldo = saldo;
         this.interesAnual = interesAnual;
+        this.titular = titular;
     }
-    public long getNumero() {
-        return numero;
+    
+    public Cliente getTitular() {
+        return titular;
     }
-    public float getSaldo() {
-        return saldo;
-    }
-    public double getInteresAnual() {
-        return interesAnual;
-    }
-    public void setNumero(long numero) {
-        this.numero = numero;
-    }
-    public void setSaldo(float saldo) {
-        this.saldo = saldo;
-    }
-    public void setInteresAnual(double interesAnual) {
-        this.interesAnual = interesAnual;
+
+    public void setTitular(Cliente titular) {
+        this.titular = titular;
     }
     /**
      * Aumenta el saldo en la cantidad que recibe por parámetro
@@ -57,9 +49,6 @@ public class Cuenta {
            saldo -= cantidad;
        } 
     }
-    public void ingresoInteresMensual(){
-        
-    }
     /**
      * Para determinar si una cuenta esta en negativo
      * @return boolean True: si el saldo está en negativo, false: en caso contrario
@@ -67,4 +56,12 @@ public class Cuenta {
     public boolean enRojos(){
         return saldo < 0;
     }
+    public void ingresoInteresMensual(){
+    }
+    public int leerSaldo(){
+        return 0;
+    }
+    public void salvar(){
+    }
+    
 }
