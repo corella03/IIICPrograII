@@ -40,9 +40,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 matriz[1][i] = 'O';
             }
         }
-        for (int i = 0; i < matriz.length; i++) {
-           System.out.println(matriz[i][i]);
-        }
     }
     /**
      * This method is called from within the constructor to initialize the form.

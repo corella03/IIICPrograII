@@ -8,6 +8,7 @@ package relacionesentreclases;
 import Diagnostico.VentanaPrincipal;
 import java.util.Date;
 
+
 /**
  **
  ** @author Luis Alonso Corella Chaves - 11/09/2017
@@ -25,7 +26,6 @@ public class RelacionesEntreClases {
 //        System.out.println(cu.getTitular().direccionCompleta());
 //        cu.ingreso(10000);
 //        System.out.println(cu.enRojos());
-//        
 //        Poligono p = new Poligono();
 //        p.agregarSegmento(new Segmento(10));
 //        p.agregarSegmento(new Segmento(11));
