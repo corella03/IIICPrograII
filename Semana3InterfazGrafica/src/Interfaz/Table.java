@@ -89,11 +89,11 @@ public class Table extends javax.swing.JDialog {
 
         TablaProcesos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", null, null},
-                {"2", null, null},
-                {"3", null, null},
-                {"4", null, null},
-                {"5", null, null}
+                {"1", null, "4"},
+                {"2", null, "3"},
+                {"3", null, "1"},
+                {"4", null, "5"},
+                {"5", null, "2"}
             },
             new String [] {
                 "N° Proceso", "Tiempo", "Prioridad"

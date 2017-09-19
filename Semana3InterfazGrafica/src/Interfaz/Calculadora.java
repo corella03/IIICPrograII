@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
-
 import javax.swing.JOptionPane;
-
 /**
  **
  ** @author Luis Alonso Corella Chaves - 18/09/2017
