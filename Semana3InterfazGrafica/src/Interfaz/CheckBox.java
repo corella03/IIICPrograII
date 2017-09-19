@@ -18,7 +18,7 @@ public class CheckBox extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
     }
     public void animalSeleccionado(){
-        String mensaje = "Animales Elegigos: ";
+        String mensaje = "Animales Elegidos: ";
         if(chkPerro.isSelected()){
             mensaje =  mensaje + "Perro ";
         }
