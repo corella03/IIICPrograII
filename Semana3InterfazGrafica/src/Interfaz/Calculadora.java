@@ -12,12 +12,13 @@ import javax.swing.JOptionPane;
 public class Calculadora extends javax.swing.JDialog {
     /**
      * Creates new form Calculadora
+     * @param parent
+     * @param modal
      */
     public Calculadora(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        simboloDeOperacion();
     }
     public void simboloDeOperacion(){
         if(cBoxOperacion.getSelectedItem().equals("Suma")){
@@ -35,8 +36,8 @@ public class Calculadora extends javax.swing.JDialog {
         String operando = txtOperando.getText();
         if(verificaEspaciosEnBlanco(operador, operando)){
             if(verificaQueSeanNumeros(operador) && verificaQueSeanNumeros(operando)){
-                double valorOperador = Double.parseDouble(txtOperador.getText());
-                double valorOperando = Double.parseDouble(txtOperando.getText());
+                double valorOperador = Double.parseDouble(txtOperador.getText().trim());//trim elimina espacio en blanco
+                double valorOperando = Double.parseDouble(txtOperando.getText().trim());
                 if(cBoxOperacion.getSelectedItem().equals("Suma")){
                     lbResultado.setText(String.valueOf(suma(valorOperador,valorOperando)));
                 }else if(cBoxOperacion.getSelectedItem().equals("Resta")){
@@ -132,6 +133,8 @@ public class Calculadora extends javax.swing.JDialog {
 
         lbOperacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbOperacion.setForeground(new java.awt.Color(255, 255, 255));
+        lbOperacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbOperacion.setText("+");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,9 +160,9 @@ public class Calculadora extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(txtOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(lbOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
                         .addComponent(txtOperando, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,12 +183,13 @@ public class Calculadora extends javax.swing.JDialog {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtOperando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(lbResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtOperador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOperando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4)
+                        .addComponent(lbResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27)
                 .addComponent(jButton1)
                 .addGap(23, 23, 23))
