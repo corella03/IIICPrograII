@@ -36,10 +36,17 @@ public class VentanaLogin extends javax.swing.JFrame {
     public void iniciarSesion(){
         String nickOCorreo = txtNick.getText().trim();
         String contra = new String (txtContraseña.getPassword());
-        if(logica.login(nickOCorreo, contra)){
-            irAVentanaLUsuario();
-            dispose();
+        if(logica.verificaEspacios(nickOCorreo, contra)){
+            if(logica.login(nickOCorreo, contra)){
+                irAVentanaLUsuario();
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario o Contraseña Incorrecto.");
+            }
+        }else {
+            JOptionPane.showMessageDialog(null, "Tiene que completar los espacios.");
         }
+        
     }
     public void irAVentanaRegistro(){
         VentanaRegistro registro = new VentanaRegistro(logica);

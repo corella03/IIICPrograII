@@ -54,12 +54,12 @@ public class VentanaRegistro extends javax.swing.JFrame {
         }
     }
     public void registar(){
-        String nombres = txtNombre.getText();
-        String apellidos = txtApellidos.getText();
-        String telefono = txtTelefono.getText();
-        String email = txtEmail.getText();
-        String nickName = txtNickname.getText();
-        String contraseña = (new String (txtContra.getPassword()));
+        String nombres = txtNombre.getText().trim();
+        String apellidos = txtApellidos.getText().trim();
+        String telefono = txtTelefono.getText().trim();
+        String email = txtEmail.getText().trim();
+        String nickName = txtNickname.getText().trim();
+        String contraseña = (new String (txtContra.getPassword()).trim());
         if(logica.verificaEspaciosRegistro(nombres, apellidos, telefono, nickName, email, contraseña)){
             if(!logica.verificaExistenciaUsuario(nickName, email)){
                 if(logica.tipoVista() == true){
@@ -69,6 +69,8 @@ public class VentanaRegistro extends javax.swing.JFrame {
                 }else if(logica.tipoVista() == false){
                     logica.editarPerfil(nombres, apellidos, telefono, nickName, email, contraseña);
                 } 
+            }else{
+                JOptionPane.showMessageDialog(null, "Este Usuario ya ha sido Registrado");
             }
         }else{
             JOptionPane.showMessageDialog(null, "Debes llenar todos los espacios.");

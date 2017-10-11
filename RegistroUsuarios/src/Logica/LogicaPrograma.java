@@ -5,7 +5,6 @@
  */
 package Logica;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 /**
  **
  ** @author Luis Alonso Corella Chaves - 27/09/2017
@@ -35,18 +34,13 @@ public class LogicaPrograma {
      * @return true: si el usuario existe, false: si el usuario no existe.
      */
     public boolean login(String nickOCorreo, String contra) {
-        if (verificaEspacios(nickOCorreo, contra)) {
-            for (Usuario usuario : listaUsuarios) {
-                System.out.println(usuario);
-                if ((nickOCorreo.equals(usuario.getNickName()) || nickOCorreo.equals(usuario.getCorreo()))
-                        && contra.equals(usuario.getContrasenna())) {
-                    usuarioRegistrado = usuario;
-                    return true;
-                }
+        for (Usuario usuario : listaUsuarios) {
+            System.out.println(usuario);
+            if ((nickOCorreo.equals(usuario.getNickName()) || nickOCorreo.equals(usuario.getCorreo()))
+                    && contra.equals(usuario.getContrasenna())) {
+                usuarioRegistrado = usuario;
+                return true;
             }
-            JOptionPane.showMessageDialog(null, "Usuario o Contraseña Incorrecto.");
-        } else {
-            JOptionPane.showMessageDialog(null, "Tiene que completar los espacios.");
         }
         return false;
     }
@@ -89,15 +83,9 @@ public class LogicaPrograma {
      */
     public boolean verificaExistenciaUsuario(String nickName, String correo){
         for(Usuario usuario : listaUsuarios){
-            if((nickName.equals(usuario.getNickName()))){
-                JOptionPane.showMessageDialog(null, "Este nickName ya ha sido Registrado");
+            if((nickName.equals(usuario.getNickName())) || (correo.equals(usuario.getCorreo()))){
                 return true;
             }
-            if(correo.equals(usuario.getCorreo())){
-                JOptionPane.showMessageDialog(null, "El Correo ya ha sido Registrado");
-                return true;
-            }
-            break;
         }
         return false;
     }
